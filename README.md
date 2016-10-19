@@ -24,3 +24,49 @@ HTML规范 - 整体结构
 	</body>
 	</html>
 ```
+#####结构顺序和视觉顺序基本保持一致#####
+*	按照从上至下、从左至右的数据额顺序书写HTML结构
+*	有时候为了方便搜索引擎抓取，我们也会将重要内容在HTML结构顺序上提前
+*	用div代替table布局，可以使HTML更具灵活性，也方便利用css控制。
+*	table不建议用于布局，但表现具有明显表格形式的数据，table还是首选。
+
+#####结构、变现、行为三者分离，避免内联#####
+*	使用link将css文件引入，并置于head中。
+*	使用script将js文件引入，并置于body底部。
+
+#####保持良好的简洁树形结构#####
+*	每一个块级元素都另起一行，每一行都是用Tab缩进对其（head和body的子元素不需要缩进）。删除冗余行尾的空格。
+*	使用四个空格代替1个Tab（大多数编译器中可设置）。
+*	对于内容及爱我简单的表格，交易将tr写成单行。
+*	你也可以在大的模块之间用空格隔开，是模块更清晰。
+
+>
+```html
+	<body>
+	<!-- 侧栏内容区 -->
+	<div class="m-side">
+	    <div class="side">
+	        <div class="sidein">
+	            <!-- 热门标签 -->
+	            <div class="sideblk">
+	                <div class="m-hd3"><h3 class="tit">热门标签</h3> </div>
+	                ...
+	            </div>
+	            <!-- 最热TOP5 -->
+	            <div class="sideblk">
+	                <div class="m-hd3"><h3 class="tit">最热TOP5</h3> <a href="#" class="s-fc02 f-fr">更多»</a></div>
+	                ...
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<!-- /侧栏内容区 -->
+	</body>
+```
+
+#####另外，请做到以下几点#####
+*	结构上可以并列书写，就不要嵌套。
+*	如果可以写成<div<\/div>那么就不要写成<div><div><\/div><\/div>
+*	如果结构已经可以满足视觉和语义的要求，那么就不要额外的冗余结构。比如<div><\h2><\/h2><\/div>，那么就不要写成<div><div><\h2><\/h2><\/div><\/div>
+*	一个标签上引用的className不要过多，越少越好。比如不要出现这种情况<div class="class1 class2 class3 class4"><\/div>
+*	对于一个语义化的内部标签，应尽量避免使用className。比如在这样的一个列表中，li标签中的itm应去除<ul class="m-help"><li class="itm"><\/li><\/ul>
